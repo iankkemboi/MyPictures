@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/getImageInfoFragment">
+
+    <fragment
+        android:id="@+id/getImageInfoFragment"
+        android:name="com.ian.payback.image.view.ui.getimagesinfo.GetImagesInfoFragment"
+        android:label="getImageInfoFragment">
+        <action
+            android:id="@+id/action_getImageInfoFragment_to_imageInfoDetail"
+
+            app:destination="@id/imageInfoDetail">
+
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/imageInfoDetail"
+        android:name="com.ian.payback.image.view.ui.getimagesinfo.ImageInfoDetail"
+        android:label="imageInfoDetail">
+        <argument
+            android:name="imageSelected"
+            android:defaultValue="@null"
+            app:nullable="true"
+            app:argType="com.ian.payback.image.domain.model.ImageInfo" />
+
+        <action
+            android:id="@+id/action_imageInfoDetail_to_getImageInfoFragment"
+            app:destination="@id/getImageInfoFragment"
+            app:popUpTo="@+id/getImageInfoFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
